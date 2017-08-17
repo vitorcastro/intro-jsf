@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1><h:outputText value="#{welcomeMBean.mensagemDeBoasVindas}" /></h1>
+
+<h:form prependId="false">
+
+	<h:messages errorStyle="color: red;"/>
+
+	Login :<h:inputText id="login" value="#{usuarioMBean.usuario.login}" required="true" />
+	<br/>
+	Senha: <h:inputSecret value="#{usuarioMBean.usuario.senha}"/>
+	<br/>
+	<h:commandButton action="#{usuarioMBean.realizarLogin}" value="Logar" />
+	
+
+
+</h:form>
+
+</body> 
+</html>
