@@ -1,0 +1,53 @@
+JSF
+
+1. Ter uma IDE de desenvolvimento (Eclipse *).
+
+2. Instalar/Configurar o servidor de aplicação (Wildfly 10 / Tomcat 9 ).
+2.1 Acessar o Show View -> Servers -> New
+2.2 Se não existir a pasta JBOSS/Wildfly, você terá que baixar os plugins do JBOSS na Marketplace.
+2.3 Testar o servidor de aplicação.
+
+3. Criar um projeto JSF
+3.1 Indicar o Target Runtime para o Wildfly instalado
+3.2 Avançar nas configuração e marcar a opção generate web.xml
+3.3 Criar o arquivo index.html dentro da pasta WebContent
+
+4. Executar o projeto no Wildfly
+
+5. Acessar as propriedades do projeto, na aba Project Facets e marcar a opção Javar Server Faces indicando a versão 2.2
+
+6. Verificar se o arquivo faces-config.xml foi e se no arquivo web.xml foi adicionado o servlet do JSF:
+{
+<servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>	
+}
+
+7. Alterar a tag <url-pattern> no arquivo web.xml para <url-pattern>*.xhtml</url-pattern>
+
+8. Criar um arquivo index.xhtml e utilizar o template Blank JSF Page.
+
+9. Alterar o arquivo web.xml na tag <welcome-file> para <welcome-file>index.xhtml</welcome-file>
+
+10. Criar um ManagedBean para exibir uma String na página inicial.
+10.1 Criar a classe WelcomeMBean
+10.2 Realizar a annotation @ManagedBean e @RequestScope em cima classe
+10.3 Criar um método que retorne uma String chamado getMensagemDeBoasVindas()
+
+11. Adicionar na página index.xhtml o WelcomeMBean
+<h:outputText value="#{welcomeMBean.mensagemDeBoasVindas}" />
+
+
+
+
+
+
+
+
+
